@@ -1,15 +1,42 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
 import "./App.css";
+import { useState, useEffect } from "react";
 import InfoPanel from "./components/infoPanel/InfoPanel";
+import MetropolisCard from "./components/metropolisCard/MetropolisCard";
+import data from "./dataLight.json";
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [items, setItems] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    // ✅ Extrait le tableau du JSON
+    const arrayData = data.items || data || [];
+
+    // ✅ Vérifie que c'est un tableau
+    if (Array.isArray(arrayData)) {
+      setItems(arrayData);
+    } else {
+      console.error("Données non valides:", arrayData);
+      setItems([]);
+    }
+
+    setLoading(false);
+  }, []);
 
   return (
     <>
-      <InfoPanel />
+      <header>
+        <InfoPanel totalCities="200" avgConsumption="950" period="24" />
+      </header>
+      <header>
+        {items.map((item) => (
+          <MetropolisCard
+            key={item.id}
+            consommation={item.consommation}
+            nomVille={item.nom}
+          />
+        ))}
+      </header>
     </>
   );
 }

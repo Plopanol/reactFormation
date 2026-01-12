@@ -1,0 +1,6 @@
+.panel {
+  min-width: 600px;
+  max-width: 800px;
+  border: 1px solid black;
+  margin: 2px;
+}

@@ -1,0 +1,4 @@
+[
+  { "id": 1, "nom": "Paris", "consommation": 22560 },
+  { "id": 2, "nom": "Lyon", "consommation": 1474 }
+]
