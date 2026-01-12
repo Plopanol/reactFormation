@@ -1,0 +1,25 @@
+#info-panel {
+  min-width: 600px;
+  max-width: 800px;
+  border: 1px solid black;
+  h3 {
+    text-align: center;
+    margin-bottom: 0;
+  }
+  #indicators {
+    display: flex;
+    justify-content: space-evenly;
+    #indicator-total {
+      color: darkgreen;
+      background-color: aliceblue;
+    }
+    #indicator-average {
+      color: darkmagenta;
+      background-color: aliceblue;
+    }
+    #indicator-period {
+      color: darkslateblue;
+      background-color: aliceblue;
+    }
+  }
+}
