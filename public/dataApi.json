@@ -1,0 +1,225 @@
+{
+  "total_count": 4435116,
+  "results": [
+    {
+      "code_insee_epci": "246300701",
+      "libelle_metropole": "Clermont Auvergne Métropole",
+      "nature": "Données temps réel",
+      "date": "2021-11-08",
+      "heures": "05:15",
+      "date_heure": "2021-11-08T04:15:00+00:00",
+      "consommation": 160,
+      "production": null,
+      "echanges_physiques": null
+    },
+    {
+      "code_insee_epci": "246300701",
+      "libelle_metropole": "Clermont Auvergne Métropole",
+      "nature": "Données temps réel",
+      "date": "2021-11-08",
+      "heures": "05:45",
+      "date_heure": "2021-11-08T04:45:00+00:00",
+      "consommation": 164,
+      "production": null,
+      "echanges_physiques": null
+    },
+    {
+      "code_insee_epci": "246300701",
+      "libelle_metropole": "Clermont Auvergne Métropole",
+      "nature": "Données temps réel",
+      "date": "2021-11-08",
+      "heures": "09:00",
+      "date_heure": "2021-11-08T08:00:00+00:00",
+      "consommation": 214,
+      "production": null,
+      "echanges_physiques": null
+    },
+    {
+      "code_insee_epci": "246300701",
+      "libelle_metropole": "Clermont Auvergne Métropole",
+      "nature": "Données temps réel",
+      "date": "2021-11-08",
+      "heures": "10:45",
+      "date_heure": "2021-11-08T09:45:00+00:00",
+      "consommation": 216,
+      "production": null,
+      "echanges_physiques": null
+    },
+    {
+      "code_insee_epci": "246300701",
+      "libelle_metropole": "Clermont Auvergne Métropole",
+      "nature": "Données temps réel",
+      "date": "2021-11-08",
+      "heures": "11:30",
+      "date_heure": "2021-11-08T10:30:00+00:00",
+      "consommation": 212,
+      "production": null,
+      "echanges_physiques": null
+    },
+    {
+      "code_insee_epci": "246300701",
+      "libelle_metropole": "Clermont Auvergne Métropole",
+      "nature": "Données temps réel",
+      "date": "2021-11-08",
+      "heures": "11:45",
+      "date_heure": "2021-11-08T10:45:00+00:00",
+      "consommation": 224,
+      "production": null,
+      "echanges_physiques": null
+    },
+    {
+      "code_insee_epci": "246300701",
+      "libelle_metropole": "Clermont Auvergne Métropole",
+      "nature": "Données temps réel",
+      "date": "2021-11-08",
+      "heures": "13:00",
+      "date_heure": "2021-11-08T12:00:00+00:00",
+      "consommation": 226,
+      "production": null,
+      "echanges_physiques": null
+    },
+    {
+      "code_insee_epci": "246300701",
+      "libelle_metropole": "Clermont Auvergne Métropole",
+      "nature": "Données temps réel",
+      "date": "2021-11-08",
+      "heures": "18:45",
+      "date_heure": "2021-11-08T17:45:00+00:00",
+      "consommation": 225,
+      "production": null,
+      "echanges_physiques": null
+    },
+    {
+      "code_insee_epci": "246300701",
+      "libelle_metropole": "Clermont Auvergne Métropole",
+      "nature": "Données temps réel",
+      "date": "2021-11-08",
+      "heures": "21:00",
+      "date_heure": "2021-11-08T20:00:00+00:00",
+      "consommation": 193,
+      "production": null,
+      "echanges_physiques": null
+    },
+    {
+      "code_insee_epci": "246300701",
+      "libelle_metropole": "Clermont Auvergne Métropole",
+      "nature": "Données temps réel",
+      "date": "2021-11-08",
+      "heures": "22:15",
+      "date_heure": "2021-11-08T21:15:00+00:00",
+      "consommation": 184,
+      "production": null,
+      "echanges_physiques": null
+    },
+    {
+      "code_insee_epci": "246300701",
+      "libelle_metropole": "Clermont Auvergne Métropole",
+      "nature": "Données temps réel",
+      "date": "2021-11-08",
+      "heures": "23:00",
+      "date_heure": "2021-11-08T22:00:00+00:00",
+      "consommation": 187,
+      "production": null,
+      "echanges_physiques": null
+    },
+    {
+      "code_insee_epci": "246300701",
+      "libelle_metropole": "Clermont Auvergne Métropole",
+      "nature": "Données temps réel",
+      "date": "2021-11-09",
+      "heures": "02:30",
+      "date_heure": "2021-11-09T01:30:00+00:00",
+      "consommation": 161,
+      "production": null,
+      "echanges_physiques": null
+    },
+    {
+      "code_insee_epci": "246300701",
+      "libelle_metropole": "Clermont Auvergne Métropole",
+      "nature": "Données temps réel",
+      "date": "2021-11-09",
+      "heures": "03:00",
+      "date_heure": "2021-11-09T02:00:00+00:00",
+      "consommation": 162,
+      "production": null,
+      "echanges_physiques": null
+    },
+    {
+      "code_insee_epci": "246300701",
+      "libelle_metropole": "Clermont Auvergne Métropole",
+      "nature": "Données temps réel",
+      "date": "2021-11-09",
+      "heures": "03:30",
+      "date_heure": "2021-11-09T02:30:00+00:00",
+      "consommation": 176,
+      "production": null,
+      "echanges_physiques": null
+    },
+    {
+      "code_insee_epci": "246300701",
+      "libelle_metropole": "Clermont Auvergne Métropole",
+      "nature": "Données temps réel",
+      "date": "2021-11-09",
+      "heures": "04:30",
+      "date_heure": "2021-11-09T03:30:00+00:00",
+      "consommation": 168,
+      "production": null,
+      "echanges_physiques": null
+    },
+    {
+      "code_insee_epci": "246300701",
+      "libelle_metropole": "Clermont Auvergne Métropole",
+      "nature": "Données temps réel",
+      "date": "2021-11-09",
+      "heures": "04:45",
+      "date_heure": "2021-11-09T03:45:00+00:00",
+      "consommation": 169,
+      "production": null,
+      "echanges_physiques": null
+    },
+    {
+      "code_insee_epci": "246300701",
+      "libelle_metropole": "Clermont Auvergne Métropole",
+      "nature": "Données temps réel",
+      "date": "2021-11-09",
+      "heures": "08:15",
+      "date_heure": "2021-11-09T07:15:00+00:00",
+      "consommation": 231,
+      "production": null,
+      "echanges_physiques": null
+    },
+    {
+      "code_insee_epci": "246300701",
+      "libelle_metropole": "Clermont Auvergne Métropole",
+      "nature": "Données temps réel",
+      "date": "2021-11-09",
+      "heures": "09:00",
+      "date_heure": "2021-11-09T08:00:00+00:00",
+      "consommation": 233,
+      "production": null,
+      "echanges_physiques": null
+    },
+    {
+      "code_insee_epci": "246300701",
+      "libelle_metropole": "Clermont Auvergne Métropole",
+      "nature": "Données temps réel",
+      "date": "2021-11-09",
+      "heures": "12:45",
+      "date_heure": "2021-11-09T11:45:00+00:00",
+      "consommation": 228,
+      "production": null,
+      "echanges_physiques": null
+    },
+    {
+      "code_insee_epci": "246300701",
+      "libelle_metropole": "Clermont Auvergne Métropole",
+      "nature": "Données temps réel",
+      "date": "2021-11-09",
+      "heures": "14:00",
+      "date_heure": "2021-11-09T13:00:00+00:00",
+      "consommation": 230,
+      "production": null,
+      "echanges_physiques": null
+    }
+  ]
+}
