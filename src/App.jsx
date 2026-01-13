@@ -34,7 +34,40 @@ function App() {
       </header>
       {Object.keys(metropolisesDatas).length !== 0 && (
         <header>
-          <MetropolisCard
+          {Object.keys(metropolisesDatas).map((cityKey) => (
+            <MetropolisCard
+              key={cityKey}
+              nomVille={cityKey}
+              consommation={
+                metropolisesDatas[cityKey].datas["2025-01-01"]["12:00"]
+                  .consommation
+              }
+              production={
+                metropolisesDatas[cityKey].datas["2025-01-01"]["12:00"]
+                  .production
+              }
+              echanges_physiques={
+                metropolisesDatas[cityKey].datas["2025-01-01"]["12:00"]
+                  .echanges_physiques
+              }
+            />
+          ))}
+        </header>
+      )}
+    </>
+  );
+}
+
+export default App;
+
+// <MetropolisCard
+//   key={ecoItem.key}
+//   consommation={ecoItem.consommation}
+//   nomVille={ecoItem.nom}
+// />
+
+{
+  /* <MetropolisCard
             nomVille={Object.keys(metropolisesDatas)[0]}
             consommation={
               metropolisesDatas[Object.keys(metropolisesDatas)[0]].datas[
@@ -57,17 +90,5 @@ function App() {
                 "2025-01-01"
               ]["12:00"].consommation
             }
-          />
-        </header>
-      )}
-    </>
-  );
+          /> */
 }
-
-export default App;
-
-// <MetropolisCard
-//   key={ecoItem.key}
-//   consommation={ecoItem.consommation}
-//   nomVille={ecoItem.nom}
-// />
