@@ -16,6 +16,13 @@ export default function MetropolisCards() {
 
   const [refresh, setRefresh] = useState(0);
 
+  const [tri, setTri] = useState("defaut");
+
+  const handleChangeTri = (event) => {
+    console.log(event.target.value);
+    setTri(event.target.value);
+  };
+
   useEffect(() => {
     const fetchDatas = async () => {
       try {
@@ -25,12 +32,17 @@ export default function MetropolisCards() {
         );
         const datas = await response.json();
         const sortedMetropolisesDatas = {};
+
         // Tri
-        const listNomsVilles = Object.keys(datas).sort();
-        listNomsVilles.forEach((nomVille) => {
-          sortedMetropolisesDatas[nomVille] = datas[nomVille];
-        });
-        setMetropolisesDatas(sortedMetropolisesDatas);
+        if ("nomVille" === tri) {
+          const listNomsVilles = Object.keys(datas).sort();
+          listNomsVilles.forEach((nomVille) => {
+            sortedMetropolisesDatas[nomVille] = datas[nomVille];
+          });
+          setMetropolisesDatas(sortedMetropolisesDatas);
+        } else {
+          setMetropolisesDatas(datas);
+        }
       } catch (err) {
         setError(err.message);
       } finally {
@@ -39,7 +51,7 @@ export default function MetropolisCards() {
     };
 
     fetchDatas();
-  }, [refresh]);
+  }, [refresh, tri]);
 
   const handleRefresh = () => {
     setMetropolisesDatas({});
@@ -52,30 +64,37 @@ export default function MetropolisCards() {
         <button type="button" onClick={handleRefresh}>
           Refresh Data
         </button>
+        <section>
+          Tri :
+          <select name="tri" id="tri" onChange={handleChangeTri}>
+            <option id="defaut" value="defaut">
+              Defaut
+            </option>
+            <option id="nomVille" value="nomVille">
+              Nom de la ville
+            </option>
+          </select>
+        </section>
         {Object.keys(metropolisesDatas).length !== 0 && (
           <header>
-            <ul>
-              {Object.keys(metropolisesDatas).map((cityKey) => (
-                <li>
-                  <MetropolisCard
-                    key={cityKey}
-                    nomVille={cityKey}
-                    consommation={
-                      metropolisesDatas[cityKey].datas["2025-01-01"]["12:00"]
-                        .consommation
-                    }
-                    production={
-                      metropolisesDatas[cityKey].datas["2025-01-01"]["12:00"]
-                        .production
-                    }
-                    echanges_physiques={
-                      metropolisesDatas[cityKey].datas["2025-01-01"]["12:00"]
-                        .echanges_physiques
-                    }
-                  />
-                </li>
-              ))}
-            </ul>
+            {Object.keys(metropolisesDatas).map((cityKey) => (
+              <MetropolisCard
+                key={cityKey}
+                nomVille={cityKey}
+                consommation={
+                  metropolisesDatas[cityKey].datas["2025-01-01"]["12:00"]
+                    .consommation
+                }
+                production={
+                  metropolisesDatas[cityKey].datas["2025-01-01"]["12:00"]
+                    .production
+                }
+                echanges_physiques={
+                  metropolisesDatas[cityKey].datas["2025-01-01"]["12:00"]
+                    .echanges_physiques
+                }
+              />
+            ))}
           </header>
         )}
         {/* Ajout de l’affichage du message de chargement */}
