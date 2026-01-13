@@ -12,12 +12,27 @@ function App() {
   const [metropolisesDatas, setMetropolisesDatas] = useState({});
   // Nous nous assurons que la récupération des données ne se fait
   // qu'au premier chargement du composant App
+  // ajout des deux nouveaux états
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(null);
   useEffect(() => {
     const fetchDatas = async () => {
-      const response = await fetch("/eco2mix-metropoles-2025-janvier-01.json");
-      // ‘/’ part du dossier public du projet
-      const datas = await response.json();
-      setMetropolisesDatas(datas);
+      try {
+        // l'état isLoading passe à true au début du chargement des données
+        setIsLoading(true);
+        const response = await fetch(
+          "/eco2mix-metropoles-2025-janvier-01.json"
+        );
+        // ‘/’ part du dossier public du projet
+        const datas = await response.json();
+        setMetropolisesDatas(datas);
+      } catch (err) {
+        // Si une erreur apparaît ; l'état error stocke le message d'erreur
+        setError(err.message);
+      } finally {
+        // Dans tous les cas ; l'état isLoading repasse à la fin à faux
+        setIsLoading(false);
+      }
     };
 
     // attention : il faut utiliser le "setter" 'setMetropolisesDatas' fournit par useState
@@ -34,26 +49,36 @@ function App() {
       </header>
       {Object.keys(metropolisesDatas).length !== 0 && (
         <header>
-          {Object.keys(metropolisesDatas).map((cityKey) => (
-            <MetropolisCard
-              key={cityKey}
-              nomVille={cityKey}
-              consommation={
-                metropolisesDatas[cityKey].datas["2025-01-01"]["12:00"]
-                  .consommation
-              }
-              production={
-                metropolisesDatas[cityKey].datas["2025-01-01"]["12:00"]
-                  .production
-              }
-              echanges_physiques={
-                metropolisesDatas[cityKey].datas["2025-01-01"]["12:00"]
-                  .echanges_physiques
-              }
-            />
-          ))}
+          <ul>
+            {Object.keys(metropolisesDatas).map((cityKey) => (
+              <li>
+                <MetropolisCard
+                  key={cityKey}
+                  nomVille={cityKey}
+                  consommation={
+                    metropolisesDatas[cityKey].datas["2025-01-01"]["12:00"]
+                      .consommation
+                  }
+                  production={
+                    metropolisesDatas[cityKey].datas["2025-01-01"]["12:00"]
+                      .production
+                  }
+                  echanges_physiques={
+                    metropolisesDatas[cityKey].datas["2025-01-01"]["12:00"]
+                      .echanges_physiques
+                  }
+                />
+              </li>
+            ))}
+          </ul>
         </header>
       )}
+      {/* Ajout de l’affichage du message de chargement */}
+      {isLoading === true && (
+        <p>Données en cours de chargement... veuillez patienter</p>
+      )}
+      {/* Ajout de l’affichage du message d’erreur si il y en a eu une */}
+      {error !== null && <p>{error}</p>}
     </>
   );
 }
