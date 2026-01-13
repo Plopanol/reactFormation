@@ -1,17 +1,17 @@
+import { Link, Route, Routes } from "react-router-dom";
 import "./App.css";
-import { useState, useEffect } from "react";
-import InfoPanel from "./components/infoPanel/InfoPanel";
-import MetropolisCards from "./components/metropolisCard/MetropolisCards";
+import Dashboard from "./pages/Dashboard";
+import About from "./pages/About";
 
 function App() {
   return (
     <>
-      <header>
-        <InfoPanel totalCities="200" avgConsumption="950" period="24" />
-      </header>
-      <header>
-        <MetropolisCards />
-      </header>
+      <Dashboard />
+      <Link to="/about">A propos</Link>
+      <br />
+      <Link to="/">Dashboard</Link>
+      <br />
+      <Link to="/metropolis">Statistiques des villes</Link>
     </>
   );
 }
