@@ -2,24 +2,15 @@ import { useState, useEffect } from "react";
 import MetropolisCard from "./MetropolisCard";
 
 export default function MetropolisCards() {
-  // Lors du premier rendu du composant,
-  // les données n'ont pas encore été récupées
-  // (temps d'affichage du site < temps de récupération des données)
-  // Nous stockons donc dans notre composant App un état responsable
-  // de la récupération des données des métropoles
   const [metropolisesDatas, setMetropolisesDatas] = useState({});
-  // Nous nous assurons que la récupération des données ne se fait
-  // qu'au premier chargement du composant App
-  // ajout des deux nouveaux états
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
-
+  const [consoMax, setConsoMax] = useState("");
   const [refresh, setRefresh] = useState(0);
 
   const [tri, setTri] = useState("defaut");
 
   const handleChangeTri = (event) => {
-    console.log(event.target.value);
     setTri(event.target.value);
   };
 
@@ -32,16 +23,31 @@ export default function MetropolisCards() {
         );
         const datas = await response.json();
         const sortedMetropolisesDatas = {};
+        const listNomsVilles = Object.keys(datas).sort();
+        let datasFiltrerEtTrie = {};
 
         // Tri
         if ("nomVille" === tri) {
-          const listNomsVilles = Object.keys(datas).sort();
           listNomsVilles.forEach((nomVille) => {
-            sortedMetropolisesDatas[nomVille] = datas[nomVille];
+            datasFiltrerEtTrie[nomVille] = datas[nomVille];
           });
-          setMetropolisesDatas(sortedMetropolisesDatas);
         } else {
-          setMetropolisesDatas(datas);
+          datasFiltrerEtTrie = datas;
+        }
+
+        // Filtre
+        if (consoMax != "") {
+          const filteredMetropolisesDatas = {};
+          listNomsVilles.forEach((nomVille) => {
+            if (
+              datasFiltrerEtTrie[nomVille].datas["2025-01-01"]["12:00"]
+                .consommation <= consoMax
+            ) {
+              filteredMetropolisesDatas[nomVille] =
+                datasFiltrerEtTrie[nomVille];
+            }
+          });
+          setMetropolisesDatas(filteredMetropolisesDatas);
         }
       } catch (err) {
         setError(err.message);
@@ -51,11 +57,15 @@ export default function MetropolisCards() {
     };
 
     fetchDatas();
-  }, [refresh, tri]);
+  }, [refresh, tri, consoMax]);
 
   const handleRefresh = () => {
     setMetropolisesDatas({});
     setRefresh(refresh + 1);
+  };
+
+  const handleSelectionConsoMax = (event) => {
+    setConsoMax(event.target.value);
   };
 
   return (
@@ -66,15 +76,17 @@ export default function MetropolisCards() {
         </button>
         <section>
           Tri :
-          <select name="tri" id="tri" onChange={handleChangeTri}>
-            <option id="defaut" value="defaut">
-              Defaut
-            </option>
-            <option id="nomVille" value="nomVille">
-              Nom de la ville
-            </option>
+          <select onChange={handleChangeTri}>
+            <option value="defaut">Defaut</option>
+            <option value="nomVille">Nom de la ville</option>
           </select>
         </section>
+        <input
+          type="number"
+          placeholder="Consommation max"
+          value={consoMax}
+          onChange={handleSelectionConsoMax}
+        />
         {Object.keys(metropolisesDatas).length !== 0 && (
           <header>
             {Object.keys(metropolisesDatas).map((cityKey) => (
